@@ -4,7 +4,9 @@ const path = require('path');
 
 const app = express();
 
-app.use("/", serveStatic(path.join(__dirname, '/dist')));
+app.use(serveStatic(path.join(__dirname, '/dist')));
+
+app.get("/", serveStatic(path.join(__dirname, '/dist')))
 
 const port = process.env.PORT || 80;
 
