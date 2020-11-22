@@ -31,11 +31,11 @@ export default {
   },
   methods: {
     getMessages() {
-      axios.get('http://192.168.0.14:8080/message').then(response => (this.messages = response.data))
+      axios.get("https://backend-spring-messanger-forme.herokuapp.com/message").then(response => (this.messages = response.data))
       console.log(this.messages)
     },
     postMessages(e) {
-      axios.post("http://192.168.0.14:8080/message", {
+      axios.post("https://backend-spring-messanger-forme.herokuapp.com/message", {
         message: e,
         userId: this.userId,
         username: this.username,
@@ -49,7 +49,7 @@ export default {
     if (sessionStorage.getItem("userId") != null) {
       this.userId = sessionStorage.getItem("userId")
     } else {
-      axios.post("http://192.168.0.14:8080/login").then(response => {
+      axios.post("https://backend-spring-messanger-forme.herokuapp.com/login").then(response => {
         this.userId = response.data
         sessionStorage.setItem("userId", response.data)
       })
